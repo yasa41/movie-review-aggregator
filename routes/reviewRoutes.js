@@ -1,3 +1,20 @@
+/**
+ * @file reviewRoutes.js
+ * @description Routes for creating and managing reviews.
+ * 
+ * Endpoints:
+ *  POST /                     - Create review (Authenticated users)
+ *  GET /                      - Get all reviews (Public)
+ *  GET /movies/:movieId       - Get reviews for a movie (Public)
+ *  PUT /:id                   - Update a review (User/Admin)
+ *  DELETE /:id                - Delete a review (User/Admin)
+ *  GET /:movieId/average-rating - Average rating via aggregation
+ * 
+ * Notes:
+ *  - Users cannot modify reviews they don't own.
+ */
+
+
 import express from "express";
 import { createReview,
   getAllReviews,

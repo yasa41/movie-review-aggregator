@@ -1,3 +1,19 @@
+/**
+ * @file reviewController.js
+ * @description Controller for managing user reviews on movies.
+ * 
+ * Responsibilities:
+ *  - Create reviews (Authenticated users)
+ *  - Update/delete reviews (Only owner or admin)
+ *  - Fetch all reviews or reviews per movie
+ *  - Calculate average rating using MongoDB aggregation
+ * 
+ * Security:
+ *  - Users can edit/delete only their own reviews.
+ *  - Admins can edit/delete any review.
+ */
+
+
 import mongoose from 'mongoose';
 import reviewModel from '../models/reviewModel.js';
 

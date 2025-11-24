@@ -1,3 +1,17 @@
+/**
+ * @file auth.js
+ * @description Middleware for verifying JWT tokens and protecting routes.
+ * 
+ * Responsibilities:
+ *  - Validate JWT from HTTP-only cookies
+ *  - Attach authenticated user details to req.user
+ *  - Restrict access based on user roles (admin/user)
+ * 
+ * Notes:
+ *  - If no token is found, the route is blocked.
+ */
+
+
 import jwt from 'jsonwebtoken';
 import userModel from '../models/userModel.js';
 

@@ -1,3 +1,16 @@
+/**
+ * @file movieController.js
+ * @description Controller for managing movies in the system.
+ * 
+ * Responsibilities:
+ *  - Create, update, delete movies (Admin only)
+ *  - Fetch movies and specific movie details (Public)
+ * 
+ * Security:
+ *  - All modification routes require admin role.
+ */
+
+
 import movieModel from '../models/movieModel.js';
 
 // Create a new movie (admin only)

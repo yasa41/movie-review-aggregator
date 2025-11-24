@@ -1,3 +1,19 @@
+/**
+ * @file movieModel.js
+ * @description Defines the movie schema stored in MongoDB.
+ * 
+ * Fields:
+ *  - title: Movie title (required)
+ *  - description: Optional plot summary
+ *  - director: Movie director name
+ *  - releaseDate: Release date as a string or Date object
+ *  - genre: Movie genre
+ * 
+ * Notes:
+ *  - Admins manage movie CRUD operations.
+ */
+
+
 import mongoose from 'mongoose';
 
 const movieSchema = new mongoose.Schema({

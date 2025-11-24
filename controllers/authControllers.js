@@ -1,3 +1,18 @@
+/**
+ * @file authController.js
+ * @description Handles user authentication: registration, login, logout.
+ * Includes password hashing, JWT token generation, and cookie management.
+ * 
+ * Responsibilities:
+ *  - Register new users
+ *  - Authenticate existing users
+ *  - Protect sensitive endpoints using JWT
+ * 
+ * Notes:
+ *  - Passwords are hashed using bcrypt before storing.
+ *  - JWT tokens are stored inside HTTP-only cookies for security.
+ */
+
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import userModel from '../models/userModel.js';

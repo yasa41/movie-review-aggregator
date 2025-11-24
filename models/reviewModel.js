@@ -1,3 +1,18 @@
+/**
+ * @file reviewModel.js
+ * @description Schema for storing user reviews for movies.
+ * 
+ * Fields:
+ *  - movie: Reference to Movie model (ObjectId)
+ *  - reviewer: Reference to User model (ObjectId)
+ *  - rating: Number between 1–5
+ *  - comment: Optional review text
+ * 
+ * Notes:
+ *  - Average rating is calculated via aggregation, not stored.
+ */
+
+
 import mongoose from 'mongoose';
 
 const reviewSchema = new mongoose.Schema({
