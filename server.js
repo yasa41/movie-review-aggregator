@@ -6,6 +6,7 @@ import cookieParser from "cookie-parser";
 //express 
 import connectDB from "./config/mongoDB.js";
 import authRouter from "./routes/authRoutes.js";
+import movieRouter from "./routes/movieRoutes.js"
 
 
 dotenv.config();
@@ -25,6 +26,7 @@ app.use(cookieParser());
 
 // Routes
 app.use("/api/auth", authRouter);
+app.use("/api/movies",movieRouter);
 
 
 app.get("/", (req, res) => {

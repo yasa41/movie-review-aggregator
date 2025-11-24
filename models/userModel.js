@@ -8,9 +8,6 @@ const userSchema = new mongoose.Schema({
         trim: true
     },
     password: { type: String, required: true },
-    resetPasswordToken: { type: String },
-    resetPasswordExpire: { type: Date },
-    workingEvents: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Event' }]
 },
     {
         timestamps: true
