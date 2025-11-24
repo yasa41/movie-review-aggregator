@@ -22,8 +22,8 @@ const reviewSchema = new mongoose.Schema({
     required: true 
   },
   reviewer: { 
-    type: mongoose.Schema.Types.ObjectId, // changed to ObjectId reference
-    ref: 'User',                         // reference User model
+    type: mongoose.Schema.Types.ObjectId, 
+    ref: 'User',                         
     required: true
   },
   rating: { 

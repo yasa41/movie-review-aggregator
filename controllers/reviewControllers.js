@@ -21,7 +21,7 @@ import reviewModel from '../models/reviewModel.js';
 export const createReview = async (req, res) => {
   try {
     const { movie, rating, comment } = req.body;
-    const reviewer = req.user._id; // use authenticated user ID
+    const reviewer = req.user._id; // authenticated user ID
 
     if (!movie || !rating) {
       return res.status(400).json({ success: false, message: 'Movie and rating are required' });

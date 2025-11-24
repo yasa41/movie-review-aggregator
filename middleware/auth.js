@@ -28,7 +28,7 @@ export const verifyToken = async (req, res, next) => {
 
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-    // Check if user still exists and attach full user object (excluding password) to req.user
+    // Check if user still exists 
     const user = await userModel.findById(decoded.id).select('-password');
     if (!user) {
       return res.status(401).json({
@@ -37,7 +37,7 @@ export const verifyToken = async (req, res, next) => {
       });
     }
 
-    req.user = user; // Attach user document, not just decoded token payload
+    req.user = user; 
     next();
   } catch (err) {
     console.error('Token verification error:', err);

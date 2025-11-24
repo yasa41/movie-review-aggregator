@@ -38,7 +38,7 @@ const movieSchema = new mongoose.Schema({
     default: [] 
   }
 }, {
-  timestamps: true // adds createdAt and updatedAt automatically
+  timestamps: true 
 });
 
 const movieModel = mongoose.models.Movie || mongoose.model('Movie', movieSchema);
