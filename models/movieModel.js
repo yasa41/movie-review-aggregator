@@ -20,10 +20,6 @@ const movieSchema = new mongoose.Schema({
   genre: { 
     type: [String], // Array of genres 
     default: [] 
-  },
-  createdAt: { 
-    type: Date, 
-    default: Date.now 
   }
 }, {
   timestamps: true // adds createdAt and updatedAt automatically

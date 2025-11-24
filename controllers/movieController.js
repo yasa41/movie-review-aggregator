@@ -1,7 +1,11 @@
 import movieModel from '../models/movieModel.js';
 
-// Create a new movie
+// Create a new movie (admin only)
 export const createMovie = async (req, res) => {
+  if (req.user.role !== 'admin') {
+    return res.status(403).json({ success: false, message: 'Access denied: Admins only' });
+  }
+
   try {
     const { title, description, director, releaseDate, genre } = req.body;
     if (!title) {
@@ -15,7 +19,7 @@ export const createMovie = async (req, res) => {
   }
 };
 
-// Get all movies
+// Get all movies (open to all)
 export const getAllMovies = async (req, res) => {
   try {
     const movies = await movieModel.find();
@@ -25,7 +29,7 @@ export const getAllMovies = async (req, res) => {
   }
 };
 
-// Get a movie by ID
+// Get a movie by ID (open to all)
 export const getMovieById = async (req, res) => {
   try {
     const movie = await movieModel.findById(req.params.id);
@@ -38,12 +42,15 @@ export const getMovieById = async (req, res) => {
   }
 };
 
-// Update a movie by ID
+// Update a movie by ID (admin only)
 export const updateMovie = async (req, res) => {
+  if (req.user.role !== 'admin') {
+    return res.status(403).json({ success: false, message: 'Access denied: Admins only' });
+  }
+
   try {
     const { title, description, director, releaseDate, genre } = req.body;
 
-    // Prepare an update object only with allowed fields
     const updateFields = {};
     if (title) updateFields.title = title;
     if (description) updateFields.description = description;
@@ -61,29 +68,26 @@ export const updateMovie = async (req, res) => {
     );
 
     if (!updatedMovie) {
-      return res.status(404).json({
-        success: false,
-        message: "Movie not found"
-      });
+      return res.status(404).json({ success: false, message: 'Movie not found' });
     }
 
     return res.status(200).json({
       success: true,
-      message: "Movie updated successfully",
+      message: 'Movie updated successfully',
       data: updatedMovie
     });
 
   } catch (error) {
-    return res.status(500).json({
-      success: false,
-      message: error.message
-    });
+    return res.status(500).json({ success: false, message: error.message });
   }
 };
 
-
-// Delete a movie by ID
+// Delete a movie by ID (admin only)
 export const deleteMovie = async (req, res) => {
+  if (req.user.role !== 'admin') {
+    return res.status(403).json({ success: false, message: 'Access denied: Admins only' });
+  }
+
   try {
     const deletedMovie = await movieModel.findByIdAndDelete(req.params.id);
     if (!deletedMovie) {

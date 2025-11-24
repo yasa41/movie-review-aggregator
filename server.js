@@ -6,8 +6,8 @@ import cookieParser from "cookie-parser";
 //express 
 import connectDB from "./config/mongoDB.js";
 import authRouter from "./routes/authRoutes.js";
-import movieRouter from "./routes/movieRoutes.js"
-
+import movieRouter from "./routes/movieRoutes.js";
+import reviewRouter from "./routes/reviewRoutes.js";
 
 dotenv.config();
 
@@ -27,7 +27,7 @@ app.use(cookieParser());
 // Routes
 app.use("/api/auth", authRouter);
 app.use("/api/movies",movieRouter);
-
+app.use("/api/reviews",reviewRouter);
 
 app.get("/", (req, res) => {
   res.send("API is running...");
