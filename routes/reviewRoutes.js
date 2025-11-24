@@ -23,6 +23,6 @@ router.put('/:id', verifyToken, updateReview);
 // Delete a review by ID
 router.delete('/:id', verifyToken, deleteReview);
 
-router.get('/movies/:movieId/average-rating', verifyToken, getAverageRatingForMovie);
+router.get('/:movieId/average-rating', verifyToken, getAverageRatingForMovie);
 
 export default router;
